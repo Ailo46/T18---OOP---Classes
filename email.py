@@ -36,7 +36,6 @@ def populate_inbox(email_address, subject_line, email_content, email_date):
     # creates email object and appends it to the inbox list
     new_email = Email(email_address, subject_line, email_content, email_date)
     inbox.append(new_email)
-    return
 
 # ============================================================================================
 
@@ -76,9 +75,9 @@ def list_emails(list_order = "all"):
 
     else:
         print(f"\t\t** {list_order} email list **")
+
         print(tabulate(table, headers=["item","Subject Line", "Hass been read"], 
                        colalign=("center","left","center"), tablefmt="mixed_outline"), '\n')
-    return
 
 # ============================================================================================
 
@@ -147,8 +146,6 @@ def read_email():
     
     # user notification for email marked as read
     print(f"\n >> Email from {selected_email.email_address} marked as read <<\n")
-    
-    return
 
 
 # ============================================================================================
