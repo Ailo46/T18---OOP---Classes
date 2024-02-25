@@ -12,7 +12,7 @@ class Email():
             ○ email_content - the contents of the email.
             ○ email_date - I have added this one as the email date
     '''
-# Constructor method
+    # Constructor method
     def __init__(self, email_address, subject_line, email_content, email_date):
         self.email_address = email_address
         self.subject_line = subject_line
@@ -58,22 +58,26 @@ def list_emails(list_order = "all"):
         item_number = 1
         for current_email in inbox:
             
-            if not current_email.has_been_read: # only not marked-as-read object will count in the table
+            if not current_email.has_been_read: # only not marked-as-read object will 
+                                                # count in the table
                 table.append([item_number, current_email.subject_line, "No"])
                 item_number +=1
     
     else:
         # for listing all emails using enumerate
         for item_number, current_email in enumerate(inbox, 1):
-            table.append([item_number, current_email.subject_line, "Yes" if current_email.has_been_read else "No"])
+            table.append([item_number, current_email.subject_line, 
+                          "Yes" if current_email.has_been_read else "No"])
     
-    # in case of empty table for listing, just print the message, otherwise will be printed using tabulate
+    #   in case of empty table for listing, just print the message, otherwise will 
+    #   be printed using tabulate
     if table == []:
         print("\n >> There is no unread email to show <<\n")
 
     else:
         print(f"\t\t** {list_order} email list **")
-        print(tabulate(table, headers=["item","Subject Line", "Hass been read"], colalign=("center","left","center"), tablefmt="mixed_outline"), '\n')
+        print(tabulate(table, headers=["item","Subject Line", "Hass been read"], 
+                       colalign=("center","left","center"), tablefmt="mixed_outline"), '\n')
     return
 
 # ============================================================================================
@@ -155,14 +159,23 @@ now = datetime.now()
 dt_string = now.strftime("%B %d, %Y %H:%M:%S")
 
 populate_inbox("aliailo@gmail.com", "Welcome to HyperionDev!", 
-               "This is the first line of the first email content. This is the second line of the first email content. This is the third line of the first email content. This is the forthd line of the first email content."
+               '''This is the first line of the first email content. 
+               This is the second line of the first email content. 
+               This is the third line of the first email content. 
+               This is the forthd line of the first email content.'''
                , dt_string)
 
 populate_inbox("aliailo@yahoo.com", "Great work on the bootcamp!", 
-               "This is the first line of the second email content. This is the second line of the second email content. This is the third line of the second email content. This is the forthd line of the second email content."
+               '''This is the first line of the second email content. 
+               This is the second line of the second email content. 
+               This is the third line of the second email content. 
+               This is the forthd line of the second email content.'''
                , dt_string)
 populate_inbox("aliailo@yahoo.com", "Your excellent marks!", 
-               "This is the first line of the third email content. This is the second line of the third email content. This is the third line of the third email content. This is the forthd line of the third email content."
+               '''This is the first line of the third email content. 
+               This is the second line of the third email content. 
+               This is the third line of the third email content. 
+               This is the forthd line of the third email content.'''
                , dt_string)
 
 show_menu = "unread"
